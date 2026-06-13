@@ -20,6 +20,23 @@ function App() {
   const tarefasEmAndamento = 8
   const tarefasConcluidas = 9
   const tarefasAtrasadas = 3
+  const atrasadas = [
+  {
+    tarefa: 'Projeto Solar Fazenda São José',
+    responsavel: 'Ana',
+    atraso: '3 dias'
+  },
+  {
+    tarefa: 'Aprovação de Layout Cliente XPTO',
+    responsavel: 'Lucas',
+    atraso: '5 dias'
+  },
+  {
+    tarefa: 'Revisão Material Didático Matemática',
+    responsavel: 'Fernanda',
+    atraso: '2 dias'
+  }
+]
 
   return (
     <div>
@@ -41,7 +58,19 @@ function App() {
           </li>
         ))}
       </ul>
-    </div>
+
+<h2>Tarefas Atrasadas</h2>
+
+<ul>
+  {atrasadas.map((item, index) => (
+    <li key={index}>
+      {item.tarefa} | Responsável: {item.responsavel} | Atraso: {item.atraso}
+    </li>
+  ))}
+</ul>
+
+</div>
+
   )
 }
 
