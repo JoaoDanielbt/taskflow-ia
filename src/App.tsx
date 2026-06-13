@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
@@ -16,7 +17,6 @@ function App() {
     }
   ]
 
-  const totalTarefas = 20
   const tarefasEmAndamento = 8
   const tarefasConcluidas = 9
   const tarefasAtrasadas = 3
@@ -38,7 +38,7 @@ function App() {
     atraso: '2 dias'
   }
 ]
-const kanban = {
+const [kanban, setKanban] = useState({
   aFazer: [
     {
       tarefa: 'Atualizar CRM',
@@ -63,10 +63,75 @@ const kanban = {
       responsavel: 'Carlos'
     }
   ]
+})
+const totalTarefas =
+  kanban.aFazer.length +
+  kanban.emAndamento.length +
+  kanban.concluido.length
+const [novaTarefa, setNovaTarefa] = useState('')
+const [novoResponsavel, setNovoResponsavel] = useState('')
+const [novoPrazo, setNovoPrazo] = useState('')
+function adicionarTarefa() {
+  const nova = {
+    tarefa: novaTarefa,
+    responsavel: novoResponsavel,
+    prazo: novoPrazo
+  }
+
+  setKanban({
+    ...kanban,
+    aFazer: [...kanban.aFazer, nova]
+  })
+
+  setNovaTarefa('')
+  setNovoResponsavel('')
+  setNovoPrazo('')
 }
+
+const cargaTrabalho: Record<string, number> = {}
+
+kanban.aFazer.forEach((item) => {
+  cargaTrabalho[item.responsavel] =
+    (cargaTrabalho[item.responsavel] || 0) + 1
+})
+
+kanban.emAndamento.forEach((item) => {
+  cargaTrabalho[item.responsavel] =
+    (cargaTrabalho[item.responsavel] || 0) + 1
+})
+
+kanban.concluido.forEach((item) => {
+  cargaTrabalho[item.responsavel] =
+    (cargaTrabalho[item.responsavel] || 0) + 1
+})
   return (
     <div>
       <h1>TaskFlow IA</h1>
+      <h2>Nova Tarefa</h2>
+
+<input
+  type="text"
+  placeholder="Nome da tarefa"
+  value={novaTarefa}
+  onChange={(e) => setNovaTarefa(e.target.value)}
+/>
+
+<input
+  type="text"
+  placeholder="Responsável"
+  value={novoResponsavel}
+  onChange={(e) => setNovoResponsavel(e.target.value)}
+/>
+
+<input
+  type="date"
+  value={novoPrazo}
+  onChange={(e) => setNovoPrazo(e.target.value)}
+/>
+
+<button onClick={adicionarTarefa}>
+  Adicionar
+</button>
 
      <h2>Indicadores</h2>
 
@@ -118,6 +183,17 @@ const kanban = {
     </li>
   ))}
 </ul>
+<h2>Carga de Trabalho</h2>
+
+<div className="card">
+  <ul>
+    {Object.entries(cargaTrabalho).map(([nome, quantidade]) => (
+      <li key={nome}>
+        {nome} → {quantidade} tarefa(s)
+      </li>
+    ))}
+  </ul>
+</div>
 <h2>Kanban</h2>
 
 <div className="kanban">
