@@ -122,7 +122,7 @@ const kanban = {
 
 <div className="kanban">
 
-  <div className="coluna">
+  <div className="coluna a-fazer">
     <h3>A Fazer</h3>
 
     <ul>
@@ -134,7 +134,7 @@ const kanban = {
     </ul>
   </div>
 
-  <div className="coluna">
+  <div className="coluna em-andamento">
     <h3>Em Andamento</h3>
 
     <ul>
@@ -146,7 +146,7 @@ const kanban = {
     </ul>
   </div>
 
-  <div className="coluna">
+  <div className="coluna concluido">
     <h3>Concluído</h3>
 
     <ul>
