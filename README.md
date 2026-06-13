@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# TaskFlow IA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+O TaskFlow IA é um protótipo de dashboard desenvolvido para auxiliar gestores no acompanhamento de equipes, tarefas atrasadas e fluxo de trabalho.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O projeto foi criado a partir do cenário de um gestor fictício chamado Ricardo, que precisava de uma forma rápida e visual de acompanhar o andamento das atividades da equipe e identificar gargalos.
 
-## React Compiler
+## Problema
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ricardo possuía dificuldade em:
 
-## Expanding the ESLint configuration
+* Identificar tarefas atrasadas rapidamente;
+* Acompanhar o andamento das atividades da equipe;
+* Visualizar o fluxo de trabalho de forma simples e objetiva;
+* Obter indicadores básicos de desempenho.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Solução
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Foi desenvolvido um dashboard contendo:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Indicadores de desempenho;
+* Taxa de conclusão de tarefas;
+* Listagem da equipe e atividades;
+* Visualização de tarefas atrasadas;
+* Quadro Kanban com separação entre:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  * A Fazer;
+  * Em Andamento;
+  * Concluído.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* React
+* TypeScript
+* CSS
+* Git
+* GitHub
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Funcionalidades
+
+* Dashboard de indicadores;
+* Gestão visual de tarefas;
+* Organização por etapas do fluxo de trabalho;
+* Interface simples e intuitiva.
+
+## Autor
+
+João Daniel
