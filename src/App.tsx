@@ -20,6 +20,7 @@ function App() {
   const tarefasEmAndamento = 8
   const tarefasConcluidas = 9
   const tarefasAtrasadas = 3
+  const taxaConclusao = 45
   const atrasadas = [
   {
     tarefa: 'Projeto Solar Fazenda São José',
@@ -48,6 +49,7 @@ function App() {
       <p>Em andamento: {tarefasEmAndamento}</p>
       <p>Concluídas: {tarefasConcluidas}</p>
       <p>Atrasadas: {tarefasAtrasadas}</p>
+      <p>Taxa de conclusão: {taxaConclusao}%</p>
 
       <h2>Equipe</h2>
 
